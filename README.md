@@ -3,11 +3,13 @@ README
 
 ## About ##
 
-This repository contains the Dockerfiles used to deploy Lavagna
+This repository contains the Dockerfiles used to deploy Lavagna.
 
 ## Usage ##
 
+```
 docker run -d  -p 8080:8080 --name=lavagna --restart=always digitalfondue/lavagna
+```
 
 ## Notes ##
 
