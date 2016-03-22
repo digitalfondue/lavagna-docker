@@ -1,4 +1,4 @@
-FROM java:7
+FROM java:8
 
 RUN wget https://repo1.maven.org/maven2/io/lavagna/lavagna/1.0.6/lavagna-1.0.6-distribution.zip
 RUN unzip lavagna-1.0.6-distribution.zip
