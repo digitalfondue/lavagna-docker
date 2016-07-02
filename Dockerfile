@@ -11,9 +11,9 @@ ENV SPRING_PROFILE dev
 RUN wget "http://repo1.maven.org/maven2/io/lavagna/lavagna/1.0.6.2/lavagna-1.0.6.2-distribution.zip"
 RUN unzip lavagna-1.0.6.2-distribution.zip
 
-CMD java -Ddatasource.dialect=${DB_DIALECT} \ 
--Ddatasource.url=${DB_URL}\
--Ddatasource.username=${DB_USER} \
--Ddatasource.password=${DB_PASS} \
--Dspring.profile.active=${SPRING_PROFILE} \
+CMD java -Ddatasource.dialect=$DB_DIALECT \ 
+-Ddatasource.url=$DB_URL \
+-Ddatasource.username=$DB_USER \
+-Ddatasource.password=$DB_PASS \
+-Dspring.profile.active=$SPRING_PROFILE \
 -jar ./lavagna-1.0.6.2/lavagna/lavagna-jetty-console.war --headless

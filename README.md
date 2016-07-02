@@ -22,3 +22,10 @@ http://[website]:8080/setup
 ## Notes ##
 
 The current version uses HSQLDB with file persistence, it works but it's intended to be used only as a demo.
+Set the following ENV variables to override the default behaviour:
+
+    - DB_DIALECT: [HSQLDB / MYSQL / PGSQL]
+    - DB_URL: jdbc:hsqldb:file:lavagna 
+    - DB_USER: db username
+    - DB_PASS: db password
+    - SPRING_PROFILE [dev / prod]
