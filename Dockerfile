@@ -15,5 +15,5 @@ CMD java -Ddatasource.dialect="${DB_DIALECT}" \
 -Ddatasource.url="${DB_URL}" \
 -Ddatasource.username="${DB_USER}" \
 -Ddatasource.password="${DB_PASS}" \
--Dspring.profile.active="${SPRING_PROFILE}" \
+-Dspring.profiles.active="${SPRING_PROFILE}" \
 -jar ./lavagna-1.0.6.2/lavagna/lavagna-jetty-console.war --headless
