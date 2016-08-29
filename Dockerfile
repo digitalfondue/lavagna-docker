@@ -8,6 +8,7 @@ ENV DB_USER sa
 ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 
+RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
 RUN wget "https://repo1.maven.org/maven2/io/lavagna/lavagna/1.0.7/lavagna-1.0.7-distribution.zip"
 RUN unzip lavagna-1.0.7-distribution.zip
 
