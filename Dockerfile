@@ -14,7 +14,7 @@ RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.0
     mv lavagna*/ lavagna/
 
 CMD java -Xms64m -Xmx128m -Ddatasource.dialect=MYSQL \ 
--Ddatasource.url=jdbc:mysql://"${DB_HOST}"/lavagna?useSSL=false&createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=UTF-8 \ 
+-Ddatasource.url=jdbc:mysql://"${DB_HOST}"/lavagna?useSSL=false\&createDatabaseIfNotExist=true\&useUnicode=true\&characterEncoding=UTF-8 \ 
 -Ddatasource.username="${DB_USER}" \ 
 -Ddatasource.password="${DB_PASS}" \ 
 -Dspring.profiles.active=prod \ 
