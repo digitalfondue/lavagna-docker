@@ -1,5 +1,8 @@
-README
-======
+## Supported tags and respective `Dockerfile` links ##
+
+-	[`latest`](https://github.com/digitalfondue/lavagna-docker/blob/master/Dockerfile)
+-	[`stable`](https://github.com/digitalfondue/lavagna-docker/blob/stable/Dockerfile)
+-	[`portainer`](https://github.com/digitalfondue/lavagna-docker/blob/portainer/Dockerfile)
 
 ## About ##
 
