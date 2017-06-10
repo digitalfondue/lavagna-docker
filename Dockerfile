@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM hypriot/rpi-java
 
 EXPOSE 8080
 
@@ -8,9 +8,11 @@ ENV DB_USER sa
 ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 
-RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
+RUN apt-get update && \
+    apt-get install wget && \
+    apt-get install unzip
 
-RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M5/lavagna-1.1-M5-distribution.zip" -O lavagna.zip && \
+RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M5/lavagna-1.1-M5-distribution.zip" -q -O lavagna.zip && \
     unzip lavagna.zip && \
     rm lavagna.zip && \
     mv lavagna*/ lavagna/
