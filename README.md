@@ -2,7 +2,7 @@
 
 -	[`latest`](https://github.com/digitalfondue/lavagna-docker/blob/master/Dockerfile)
 -	[`stable`](https://github.com/digitalfondue/lavagna-docker/blob/stable/Dockerfile)
--	[`portainer`](https://github.com/digitalfondue/lavagna-docker/blob/portainer/Dockerfile)
+-	[`raspberry-pi`](https://github.com/digitalfondue/lavagna-docker/blob/raspberry-pi/Dockerfile)
 
 ## About ##
 
