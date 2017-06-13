@@ -9,15 +9,16 @@ ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 
 RUN apt-get update && \
-    apt-get install wget && \
-    apt-get install unzip
+    apt-get upgrade && \
+    apt-get autoremove && \
+    apt-get install wget unzip
 
 RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M5/lavagna-1.1-M5-distribution.zip" -q -O lavagna.zip && \
     unzip lavagna.zip && \
     rm lavagna.zip && \
     mv lavagna*/ lavagna/
 
-CMD java -Xms64m -Xmx128m -Ddatasource.dialect="${DB_DIALECT}" \ 
+CMD java -Xms64m -Xmx192m -Ddatasource.dialect="${DB_DIALECT}" \ 
 -Ddatasource.url="${DB_URL}" \
 -Ddatasource.username="${DB_USER}" \
 -Ddatasource.password="${DB_PASS}" \
