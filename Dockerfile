@@ -1,4 +1,4 @@
-FROM hypriot/rpi-java
+FROM resin/raspberrypi3-alpine-openjdk:openjdk-8-jre
 
 EXPOSE 8080
 
@@ -9,17 +9,16 @@ ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 ENV CONTEXT_PATH /
 
-RUN apt-get update && \
-    apt-get upgrade && \
-    apt-get autoremove && \
-    apt-get install wget unzip
+RUN apk update && \
+    apk upgrade && \
+    apk add wget unzip ca-certificates
 
 RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M5/lavagna-1.1-M5-distribution.zip" -q -O lavagna.zip && \
     unzip lavagna.zip && \
     rm lavagna.zip && \
     mv lavagna*/ lavagna/
 
-CMD java -Xms64m -Xmx128m -Ddatasource.dialect="${DB_DIALECT}" \ 
+CMD java -Xms64m -Xmx256m -Ddatasource.dialect="${DB_DIALECT}" \ 
 -Ddatasource.url="${DB_URL}" \
 -Ddatasource.username="${DB_USER}" \
 -Ddatasource.password="${DB_PASS}" \
