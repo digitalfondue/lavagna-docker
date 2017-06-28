@@ -1,4 +1,4 @@
-FROM resin/raspberrypi3-alpine-openjdk:openjdk-8-jre
+FROM resin/rpi-raspbian
 
 EXPOSE 8080
 
@@ -9,9 +9,15 @@ ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 ENV CONTEXT_PATH /
 
-RUN apk update && \
-    apk upgrade && \
-    apk add wget unzip ca-certificates
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9 && \
+    echo 'deb http://repos.azulsystems.com/debian stable main' > /etc/apt/sources.list.d/zulu.list && \
+    apt-get update -qq && \
+    apt-get upgrade && \
+    apt-get -qqy install wget unzip ca-certificates zulu-embedded-8 && \ 
+    update-alternatives --config java && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm --force --recursive /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M5/lavagna-1.1-M5-distribution.zip" -q -O lavagna.zip && \
     unzip lavagna.zip && \
