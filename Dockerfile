@@ -3,19 +3,19 @@ FROM openjdk:8-jre-alpine
 EXPOSE 8080
 
 ENV DB_DIALECT HSQLDB
-ENV DB_URL jdbc:hsqldb:file:lavagna 
+ENV DB_URL jdbc:hsqldb:file:lavagna
 ENV DB_USER sa
 ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 
 RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
 
-RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M7/lavagna-1.1-M7-distribution.zip" -O lavagna.zip && \
+RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1-M8/lavagna-1.1-M8-distribution.zip" -O lavagna.zip && \
     unzip lavagna.zip && \
     rm lavagna.zip && \
     mv lavagna*/ lavagna/
 
-CMD java -Xms64m -Xmx128m -Ddatasource.dialect="${DB_DIALECT}" \ 
+CMD java -Xms64m -Xmx128m -Ddatasource.dialect="${DB_DIALECT}" \
 -Ddatasource.url="${DB_URL}" \
 -Ddatasource.username="${DB_USER}" \
 -Ddatasource.password="${DB_PASS}" \
