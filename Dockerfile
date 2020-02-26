@@ -8,7 +8,7 @@ ENV DB_USER sa
 ENV DB_PASS ""
 ENV SPRING_PROFILE dev
 
-RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
+RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl fontconfig ttf-dejavu
 
 RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1.4/lavagna-1.1.4-distribution.zip" -O lavagna.zip && \
     unzip lavagna.zip && \
