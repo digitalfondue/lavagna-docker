@@ -10,7 +10,7 @@ ENV SPRING_PROFILE dev
 
 RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl fontconfig ttf-dejavu
 
-RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1.6/lavagna-1.1.6-distribution.zip" -O lavagna.zip && \
+RUN wget "https://github.com/digitalfondue/lavagna/releases/download/lavagna-1.1.7/lavagna-1.1.7-distribution.zip" -O lavagna.zip && \
     unzip lavagna.zip && \
     rm lavagna.zip && \
     mv lavagna*/ lavagna/
